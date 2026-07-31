@@ -1,0 +1,9 @@
+# .github/metadata.yaml
+description: "The server shell for swift-application: engine-free middleware policy, job root-scoping, and the Vapor adapter binding."
+topics:
+  - foundations
+  - server
+  - application
+homepage: "https://swift-institute.org"
+readme:
+  family: E
