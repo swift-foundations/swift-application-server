@@ -94,11 +94,11 @@ extension Server.Policy {
         var stack: [any Server.Middleware] = [failure]
 
         if https {
-            stack.append(HTTP.Redirect.HTTPS(on: true))
+            stack.append(Redirect.HTTPS(on: true))
         }
 
         if let host {
-            stack.append(HTTP.Redirect.Canonical(host: host.canonical))
+            stack.append(Redirect.Canonical(host: host.canonical))
         }
 
         return stack

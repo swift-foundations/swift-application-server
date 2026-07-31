@@ -48,10 +48,10 @@ extension Server.Policy.Host {
 
     /// The allowlist this host policy denotes.
     ///
-    /// Composed rather than restated: ``HTTP/Host/Allowlist`` owns what it means for
+    /// Composed rather than restated: ``Host/Allowlist`` owns what it means for
     /// an authority to be admissible, and this policy owns only which authorities
     /// those are.
-    public var allowlist: HTTP.Host.Allowlist {
-        HTTP.Host.Allowlist(allowedHosts: allowed)
+    public var allowlist: Host.Allowlist {
+        Host.Allowlist(allowedHosts: allowed)
     }
 }
