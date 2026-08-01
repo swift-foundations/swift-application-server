@@ -72,6 +72,9 @@ extension Server {
 // MARK: - Materialization
 
 extension Server.Policy {
+    // The stack is deliberately heterogeneous — distinct concrete conformers
+    // composed in policy order — so an existential element type is the design.
+    // swiftlint:disable no_any_protocol_existential
     /// The policy as a middleware stack, outermost first.
     ///
     /// Order is the policy's substance, not a detail. The failure shape is
@@ -86,12 +89,7 @@ extension Server.Policy {
     /// an engine capability, so the adapter installs its own file layer using
     /// ``resources`` as the decision. A stack that pretended otherwise would be
     /// untrue at the only point where it mattered.
-    ///
-    /// The stack is deliberately heterogeneous — distinct concrete conformers
-    /// composed in policy order — so an existential element type is the design.
-    // swiftlint:disable:next no_any_protocol_existential
     public var middleware: [any Server.Middleware] {
-        // swiftlint:disable:next no_any_protocol_existential
         var stack: [any Server.Middleware] = [failure]
 
         if https {
@@ -104,4 +102,5 @@ extension Server.Policy {
 
         return stack
     }
+    // swiftlint:enable no_any_protocol_existential
 }
